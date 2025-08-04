@@ -16,4 +16,9 @@ query = "tell me about bowler"
 doc_embeddings = embeddings.embed_documents(documents)
 query_embedding = embeddings.embed_query(query)
 
-print(cosine_similarity([query_embedding],doc_embeddings))
+scores = cosine_similarity([query_embedding],doc_embeddings)[0]
+# print(scores)
+index,score = sorted(list(enumerate(scores)),key = lambda x: x[1])[-1]
+
+print(documents[index])
+print("similarity score is",score)
