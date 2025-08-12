@@ -7,7 +7,7 @@ load_dotenv()
 llm = HuggingFaceEndpoint(
     repo_id = "deepseek-ai/DeepSeek-R1-0528",
     task = "text-generation",
-    huggingfacehub_api_token = os.getenv("HUGGINGFACEHUB_API_TOKEN"),
+    huggingfacehub_api_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
     )
 
 model = ChatHuggingFace(llm = llm,verbose=False)
